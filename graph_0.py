@@ -41,14 +41,16 @@ while k<i:
     y[k] = input('enter y axis values: ')
     k +=1
     
-
+    
+    
+u1 = float(input('enter x uncertainity: '))
+u2 = float(input('enter y uncertainity: '))
 t = input('enter the title: ')
 xl = input('Enter x-label: ')
 yl = input('Enter y-label: ')
-d = input('Enter degree of polynomial fit: ')
+d = int(input('Enter degree of polynomial fit: '))
 #sigma = raw_input('Enter the standard deviation: ')
-u1 = float(input('enter x uncertainity: '))
-u2 = float(input('enter y uncertainity: '))
+
 
 plt.scatter(x,y, c='r')
 plt.plot(x,y, 'g', label='Ball', linewidth=1)
@@ -77,6 +79,6 @@ plt.plot(x,y,'o', x_new, y_new) #to plot the best fit curve
 plt.title('Curve Fitting')
 plt.show()
 
-#plt.title('Original Motion')
-#plt.plot(x_new,y_new, 'y')
+plt.title('Original Curve')
+plt.plot(x_new,y_new, 'y')
 
