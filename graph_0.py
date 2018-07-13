@@ -23,7 +23,7 @@ import numpy as np
 
 
 j=0
-i = input('enter the number of values: ')
+i = int(input('enter the number of values: '))
 
 x = np.ndarray(i, float)
 y = np.ndarray(i, float)
@@ -42,13 +42,13 @@ while k<i:
     k +=1
     
 
-t = raw_input('enter the title: ')
-xl = raw_input('Enter x-label: ')
-yl = raw_input('Enter y-label: ')
-d = raw_input('Enter degree of polynomial fit: ')
+t = input('enter the title: ')
+xl = input('Enter x-label: ')
+yl = input('Enter y-label: ')
+d = input('Enter degree of polynomial fit: ')
 #sigma = raw_input('Enter the standard deviation: ')
-u1 = float(raw_input('enter x uncertainity: '))
-u2 = float(raw_input('enter y uncertainity: '))
+u1 = float(input('enter x uncertainity: '))
+u2 = float(input('enter y uncertainity: '))
 
 plt.scatter(x,y, c='r')
 plt.plot(x,y, 'g', label='Ball', linewidth=1)
