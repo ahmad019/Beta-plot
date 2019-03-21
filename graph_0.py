@@ -13,13 +13,9 @@ graph plotting b/w two different values
               
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy.stats as st
 #from scipy.optimize import curve_fit
 #import math as mp
-
-
-
-
-# (27349,1686, 2100, 1875) (91, 5.6, 7, 6.25)
 
 
 j=0
@@ -40,8 +36,7 @@ while k<i:
     
     y[k] = input('enter y axis values: ')
     k +=1
-    
-    
+       
     
 u1 = float(input('enter x uncertainity: '))
 u2 = float(input('enter y uncertainity: '))
@@ -64,6 +59,10 @@ plt.show()
 #ti = np.array(ti)   #converting into
 #yi = np.array(yi)       # numpy array
 
+#slope and intercept
+stat = st.linregress(x,y)
+slope = stat[0]
+intercept = stat[1]
     
 z = np.polyfit(x,y,d)   #data fitting
 #z = np.polyfit(np.log(x), y, 1) #to take log of the values and fit ln(x)
@@ -75,10 +74,15 @@ f = np.poly1d(z)     #initializing a polynomial
 x_new = np.linspace(x[0], x[-1], 50) #plotting the ploynomial deg 2
 y_new = f(x_new)
 
+#plt.xlim[-2,2]   #scale limits of 
+#plt.ylim[-10,10]   # x and y axes
+
 plt.plot(x,y,'o', x_new, y_new) #to plot the best fit curve
 plt.title('Curve Fitting')
+plt.text(x[0],y[1],'Slope=%.2f' %slope + '\nIntercept=%.2f' %intercept)
 plt.show()
 
 plt.title('Original Curve')
 plt.plot(x_new,y_new, 'y')
+plt.show()
 
